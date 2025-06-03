@@ -1,23 +1,44 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import './Stories.css';
+
+import JohnDoe from '../stories/john-doe';
+import JaneDoe from '../stories/jane-doe';
+
+const stories = {
+  'john-doe': { name: 'John Doe', Component: JohnDoe },
+  'jane-doe': { name: 'Jane Doe', Component: JaneDoe },
+};
 
 const Stories = () => {
-  const storyFiles = import.meta.glob('../stories/*.js', { eager: true });
+  const [active, setActive] = useState(null);
+
+  const toggleStory = (key) => {
+    setActive(active === key ? null : key);
+  };
 
   return (
-    <div>
-      <h2>Stories</h2>
-      <div>
-        {Object.keys(storyFiles).map((filePath) => {
-          const fileName = filePath.split('/').pop().replace('.js', '');
-          const StoryComponent = storyFiles[filePath].default;
-          return (
-            <div key={fileName}>
-              <Link to={`/story/${fileName}`}>
-                <StoryComponent />
-              </Link>
-            </div>
-          );
-        })}
+    <div className="stories-container">
+      <h2 className="title">Voices We Remember</h2>
+      <div className="story-buttons">
+        {Object.entries(stories).map(([key, { name }]) => (
+          <button
+            key={key}
+            className={`story-btn ${active === key ? 'active' : ''}`}
+            onClick={() => toggleStory(key)}
+          >
+            {name}
+          </button>
+        ))}
+      </div>
+      <div className="story-display">
+        {active && (
+          <div className="story-fade">
+            {(() => {
+              const StoryComponent = stories[active].Component;
+              return <StoryComponent />;
+            })()}
+          </div>
+        )}
       </div>
     </div>
   );

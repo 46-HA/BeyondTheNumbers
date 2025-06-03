@@ -1,19 +1,18 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Stories from './pages/Stories';
-import Story from './pages/Story';
-import './App.css';
+import StoryPage from './pages/StoryPage'; // NEW COMPONENT
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stories" element={<Stories />} />
-        <Route path="/story/:name" element={<Story />} />
+        <Route path="/pages/:id" element={<StoryPage />} /> {/* Dynamic route */}
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
