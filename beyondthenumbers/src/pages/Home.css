@@ -1,21 +1,60 @@
-.home {
+:root {
+  --blue: #1a237e;
+  --red: #b71c1c;
+  --white: #eceff1;
+  --dark-bg: #121212;
+  --text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+.landing-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 50px;
-  background-size: cover;
+  padding: 0 1rem;
+  background: linear-gradient(135deg, var(--blue), var(--red));
+  position: relative;
+  overflow: hidden;
 }
 
-.home h1 {
-  font-size: 3rem;
-  color: white;
+.landing-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeSlideIn 1.5s forwards 0.3s;
+  text-shadow: var(--text-shadow);
 }
 
-.home p {
+.landing-subtitle {
   font-size: 1.5rem;
-  color: white;
+  font-weight: 500;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeSlideIn 1.5s forwards 1.2s;
+  text-shadow: var(--text-shadow);
+  max-width: 600px;
 }
 
-.home a {
-  font-size: 1.2rem;
-  color: #ff6347;
-  text-decoration: none;
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

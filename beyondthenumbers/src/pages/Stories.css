@@ -1,69 +1,79 @@
+:root {
+  --blue: #0d47a1;
+  --red: #d32f2f;
+  --white: #fafafa;
+  --dark-bg: #121212;
+  --text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .stories-container {
+  max-width: 900px;
+  margin: 3rem auto;
   padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-  background-color: #f8f8fa;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--dark-bg);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  font-family: var(--font-family);
 }
 
 .title {
   text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--white);
+  text-shadow: var(--text-shadow);
+  opacity: 0;
+  animation: fadeSlideIn 1.5s forwards;
 }
 
 .story-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
   justify-content: center;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .story-btn {
-  background: #0059b3;
-  color: white;
+  background-color: var(--blue);
   border: none;
+  color: var(--white);
+  padding: 0.75rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 8px;
-  padding: 0.6rem 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(0, 0, 139, 0.5);
+  opacity: 0;
+  animation: fadeSlideIn 1.2s forwards;
+  animation-delay: 0.5s;
 }
 
-.story-btn:hover,
-.story-btn.active {
-  background: #003d80;
+.story-btn:hover {
+  background-color: var(--red);
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
 }
 
-.story-display {
-  animation: fadeIn 0.5s ease-in-out;
-  background: white;
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+.story-btn.active {
+  background-color: var(--white);
+  color: var(--blue);
+  box-shadow: 0 0 25px rgba(13, 71, 161, 0.9);
 }
 
-.story-fade {
-  animation: slideIn 0.5s ease;
-}
-
-@keyframes slideIn {
+@keyframes fadeSlideIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0.7; }
-  to { opacity: 1; }
 }

@@ -1,44 +1,21 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Stories.css';
 
-import JohnDoe from '../stories/john-doe';
-import JaneDoe from '../stories/jane-doe';
-
 const stories = {
-  'john-doe': { name: 'John Doe', Component: JohnDoe },
-  'jane-doe': { name: 'Jane Doe', Component: JaneDoe },
+  'john-doe': 'John Doe',
+  'jane-doe': 'Jane Doe',
 };
 
 const Stories = () => {
-  const [active, setActive] = useState(null);
-
-  const toggleStory = (key) => {
-    setActive(active === key ? null : key);
-  };
-
   return (
     <div className="stories-container">
       <h2 className="title">Voices We Remember</h2>
       <div className="story-buttons">
-        {Object.entries(stories).map(([key, { name }]) => (
-          <button
-            key={key}
-            className={`story-btn ${active === key ? 'active' : ''}`}
-            onClick={() => toggleStory(key)}
-          >
-            {name}
-          </button>
+        {Object.entries(stories).map(([key, name]) => (
+          <Link key={key} to={`/pages/${key}`}>
+            <button className="story-btn">{name}</button>
+          </Link>
         ))}
-      </div>
-      <div className="story-display">
-        {active && (
-          <div className="story-fade">
-            {(() => {
-              const StoryComponent = stories[active].Component;
-              return <StoryComponent />;
-            })()}
-          </div>
-        )}
       </div>
     </div>
   );
