@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './Stories.css';
 
 const stories = {
-  'john-doe': 'John Doe',
+  'gordonaamoth': 'Gordon Aamothj',
   'jane-doe': 'Jane Doe',
 };
 
