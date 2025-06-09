@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import JohnDoe from '../stories/john-doe';
+import Gordonmccannelaamothjr from '../stories/gordonmccannelaamothjr';
 import JaneDoe from '../stories/jane-doe';
 import './StoryPage.css';
 
 const storyComponents = {
-  'john-doe': JohnDoe,
+  'Gordon McCannel Aamothj Jr.': Gordonmccannelaamothjr,
   'jane-doe': JaneDoe,
 };
 
