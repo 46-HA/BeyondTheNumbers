@@ -1,4 +1,4 @@
-// GordonMcCannelAamothJr.js
+// .js
 import gordonAamothImg from './pictures/gordonaamoth.png';
 
 const GordonMcCannelAamothJr = () => (

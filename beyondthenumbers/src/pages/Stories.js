@@ -4,6 +4,7 @@ import './Stories.css';
 const stories = {
   'gordonaamoth': 'Gordon Aamothj',
   'edelmiroabad': 'Edelmiro “Ed” Abad',
+  "marieroseabad": "Marie Rose Abad"
 };
 
 const Stories = () => {

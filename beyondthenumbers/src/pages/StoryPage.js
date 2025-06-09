@@ -1,16 +1,19 @@
 import { useParams } from 'react-router-dom';
 import GordonAamothj from '../stories/gordonaamoth.js';
 import EdelmiroEdAbad from '../stories/edelmiroabad.js';
+import Marieroseabad from '../stories/marieroseabad';
 import './StoryPage.css';
 
 const storyComponents = {
   'gordonaamoth': GordonAamothj,
   'edelmiroabad': EdelmiroEdAbad,
+  "marieroseabad": Marieroseabad,
 };
 
 const storyTitles = {
   'gordonaamoth': 'Gordon Aamoth',
   'edelmiroabad': 'Edelmiro “Ed” Abad',
+  'marieroseabad': "Marie Rose Abad"
 };
 
 const StoryPage = () => {
