@@ -3,7 +3,7 @@ import './Stories.css';
 
 const stories = {
   'gordonaamoth': 'Gordon Aamothj',
-  'jane-doe': 'Jane Doe',
+  'edelmiroabad': 'Edelmiro “Ed” Abad',
 };
 
 const Stories = () => {
